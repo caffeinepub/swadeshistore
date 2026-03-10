@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Nunito:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.625rem;
+
+    /* SwadeshiStore brand tokens (OKLCH for Tailwind) */
+    --background: 0.99 0.01 95;
+    --foreground: 0.22 0.04 45;
+    --card: 1 0 0;
+    --card-foreground: 0.22 0.04 45;
+    --popover: 1 0 0;
+    --popover-foreground: 0.22 0.04 45;
+    --primary: 0.59 0.18 42;
+    --primary-foreground: 0.99 0 0;
+    --secondary: 0.98 0.02 85;
+    --secondary-foreground: 0.22 0.04 45;
+    --muted: 0.98 0.02 85;
+    --muted-foreground: 0.51 0.04 60;
+    --accent: 0.59 0.18 42;
+    --accent-foreground: 0.99 0 0;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.90 0.03 80;
+    --input: 0.90 0.03 80;
+    --ring: 0.59 0.18 42;
+    --chart-1: 0.59 0.18 42;
+    --chart-2: 0.50 0.17 142;
+    --chart-3: 0.64 0.12 75;
+    --chart-4: 0.17 0.04 243;
+    --chart-5: 0.83 0.14 80;
+    --sidebar: 0.17 0.04 243;
+    --sidebar-foreground: 0.99 0 0;
+    --sidebar-primary: 0.59 0.18 42;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.22 0.04 243;
+    --sidebar-accent-foreground: 0.99 0 0;
+    --sidebar-border: 0.25 0.04 243;
+    --sidebar-ring: 0.59 0.18 42;
+
+    /* Brand hex vars for gradient/clip-path use */
+    --sw-saffron: #E8520A;
+    --sw-saffron-light: #FF7A35;
+    --sw-saffron-pale: #FFF0E8;
+    --sw-gold: #C8960C;
+    --sw-gold-light: #F5C842;
+    --sw-gold-pale: #FFFBEE;
+    --sw-green: #0E7A0D;
+    --sw-green-light: #16A314;
+    --sw-green-pale: #EFFFEE;
+    --sw-navy: #0D1B2A;
+    --sw-navy-mid: #1A2E42;
+    --sw-cream: #FFFDF6;
+    --sw-warm: #FFF8EE;
+    --sw-border: #EDE0CE;
+    --sw-text: #2C1810;
+    --sw-muted: #7A6A5A;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
+.marquee-inner {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 22s linear infinite;
+}
+
+/* Slide-in for cart */
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+.slide-in-right {
+  animation: slideInRight 0.3s ease;
+}
+
+/* Pop-in for modal */
+@keyframes popIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.pop-in {
+  animation: popIn 0.3s ease;
+}
+
+/* Hide scrollbar */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { scrollbar-width: none; }
